@@ -17,7 +17,7 @@
     <button 
     @click="printMails"> Print 10 random mails </button>
 
-    <li v-for="value in mails"> {{value}} </li>
+    <li v-for="(value, i) in mails"> {{i + 1}}: {{value}} </li>
 
   </ul>
 

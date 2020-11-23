@@ -4,7 +4,7 @@ const app = new Vue ({
   el: "#app",
     data: {
     mails: [],
-    printedMails: 10
+    printedMails: 10,
   },
   created(){  
     const self = this; //Imposto la costante per non far cambiare il valore a this
