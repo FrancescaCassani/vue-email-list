@@ -14,8 +14,10 @@
 
   <ul id="app">
 
-    <li v-for="mail in mails"> {{mail}} </li>
-    <!-- <button @click="printMail"> New Random Mail </button> -->
+    <button 
+    @click="printMails"> Print 10 random mails </button>
+
+    <li v-for="value in mails"> {{value}} </li>
 
   </ul>
 

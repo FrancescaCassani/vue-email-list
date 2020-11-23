@@ -3,40 +3,26 @@
 const app = new Vue ({
   el: "#app",
     data: {
-    mails: ''
+    mails: [],
+    printedMails: 10
   },
   created(){  
     const self = this; //Imposto la costante per non far cambiare il valore a this
-
-    axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-      .then(function (response) { 
-      //Verifica
-      console.log(response.data);
-
-      self.mails = response.data.response; 
-
-      })
-      .catch(function (error) {
-      console.log('Mail', error);
-      });
-
   },
   methods: {
+    printMails() {
+      const self = this; //Imposto la costante per non far cambiare il valore a this
 
-    // printMail() {
-    //   const self = this; //Imposto la costante per non far cambiare il valore a this
-
-    // axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-    //   .then(function (response) { 
-    //   //Verifica
-    //   console.log(response.data);
-
-    //   self.mail = response.data.response; 
-    //   })
-    //   .catch(function (error) {
-    //   console.log('Mail', error);
-    //   });
-    // }
+      for (i = 0; i < self.printedMails; i++){
+        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then(function (response) { 
+          self.mails.push(response.data.response);
+        })
+        .catch(function (error) {
+          console.log('Mail', error);
+        });
+      }
+    }
   }
 });
 
